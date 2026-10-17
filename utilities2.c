@@ -6,7 +6,7 @@
 /*   By: oalroyei <oalroyei@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/14 13:05:26 by oalroyei          #+#    #+#             */
-/*   Updated: 2026/10/14 16:55:03 by oalroyei         ###   ########.fr       */
+/*   Updated: 2026/10/17 19:50:31 by oalroyei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int	count_numbers(int argc, char **argv)
 			return (-1);
 		}
 		total += count_tokens(tab);
+		free_split(tab);
 		i++;
 	}
 	return (total);
@@ -66,33 +67,37 @@ int	fill_tokens(int *arr, char **tab, int *k)
 	return (1);
 }
 
+static int	*free_null(char **tab, int *arr)
+{
+	free_split(tab);
+	free(arr);
+	return (0);
+}
+
 int	*parse_args(int argc, char **argv, int *size)
 {
-	int	i;
-	int	k;
+	char	**tab;
+	int		*arr;
+	int			i;
+	int			k;
 
 	*size = count_numbers(argc, argv);
 	if (*size == -1)
 		return (NULL);
 	arr = malloc (*size * sizeof(int));
+	if (!arr)
+		return (NULL);
 	i = 1;
 	k = 0;
-	while (tab[i])
+	while (i < argc)
 	{
 		tab = ft_split(argv[i], ' ');
 		if (!tab || !fill_tokens(arr, tab, &k))
-		{
-			free_split(tab);
-			free(arr);
-			return (NULL);
-		}
+			return (free_null(tab, arr));
 		free_split(tab);
 		i++;
 	}
 	if (has_duplicates(arr, *size))
-	{
-		free(arr);
-		return (NULL);
-	}
+		return (free_null(NULL, arr));
 	return (arr);
 }

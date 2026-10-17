@@ -6,7 +6,7 @@
 /*   By: oalroyei <oalroyei@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/12 18:28:37 by oalroyei          #+#    #+#             */
-/*   Updated: 2026/10/12 20:19:47 by oalroyei         ###   ########.fr       */
+/*   Updated: 2026/10/17 19:49:52 by oalroyei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,27 +39,29 @@ int	is_int_range(long n)
 
 long	ft_atol(char *str)
 {
-	size_t	i;
 	long	result;
-	int		sign;
+	int	sign;
+	long	limit;
 
-	i = 0;
 	sign = 1;
-	while ((str[i] == ' ') || (str[i] >= 9 && str[i] <= 13))
-		i++;
-	if (str[i] == '+' || str[i] == '-')
+	while ((*str == ' ') || (*str >= 9 && *str <= 13))
+		str++;
+	if (*str == '+' || *str == '-')
 	{
-		if (str[i] == '-')
+		if (*str == '-')
 			sign = -1;
-		i++;
+		str++;
 	}
+	limit = INT_MAX;
+	if (sign == -1)
+		limit = -(long)INT_MIN;
 	result = 0;
-	while (str[i] >= '0' && str[i] <= '9')
+	while (*str >= '0' && *str <= '9')
 	{
-		result = result * 10 + (str[i] - '0');
-		if (result > 2147483648)
-			break ;
-		i++;
+		if (result > (limit - (*str - '0')) / 10)
+			return (limit + 1);
+		result = result * 10 + (*str - '0');
+		str++;
 	}
 	return (result * sign);
 }
