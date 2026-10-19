@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utilities1.c                                       :+:      :+:    :+:   */
+/*   parsing_one.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oalroyei <oalroyei@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/12 18:28:37 by oalroyei          #+#    #+#             */
-/*   Updated: 2026/10/17 19:49:52 by oalroyei         ###   ########.fr       */
+/*   Updated: 2026/10/19 21:12:11 by oalroyei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	is_int_range(long n)
 long	ft_atol(char *str)
 {
 	long	result;
-	int	sign;
+	long	sign;
 	long	limit;
 
 	sign = 1;

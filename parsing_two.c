@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utilities2.c                                       :+:      :+:    :+:   */
+/*   parsing_two.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oalroyei <oalroyei@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/14 13:05:26 by oalroyei          #+#    #+#             */
-/*   Updated: 2026/10/17 19:50:31 by oalroyei         ###   ########.fr       */
+/*   Updated: 2026/10/19 21:14:09 by oalroyei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	count_numbers(int argc, char **argv)
 int	fill_tokens(int *arr, char **tab, int *k)
 {
 	long	n;
-	int	i;
+	long	i;
 
 	i = 0;
 	while (tab[i])
@@ -78,8 +78,8 @@ int	*parse_args(int argc, char **argv, int *size)
 {
 	char	**tab;
 	int		*arr;
-	int			i;
-	int			k;
+	int		i;
+	int		k;
 
 	*size = count_numbers(argc, argv);
 	if (*size == -1)

@@ -6,7 +6,7 @@
 /*   By: oalroyei <oalroyei@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/17 20:24:56 by oalroyei          #+#    #+#             */
-/*   Updated: 2026/10/17 21:04:22 by oalroyei         ###   ########.fr       */
+/*   Updated: 2026/10/19 21:15:58 by oalroyei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,10 @@
 int	main(int argc, char **argv)
 {
 	t_stack	*head;
-	int	*numbers;
+	int		*numbers;
 	int		size;
 	int		i;
+
 	if (argc > 1)
 	{
 		numbers = parse_args(argc, argv, &size);
