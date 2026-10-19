@@ -6,19 +6,17 @@
 /*   By: lnazzal <lnazzal@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/17 15:51:42 by lnazzal           #+#    #+#             */
-/*   Updated: 2026/10/17 16:12:31 by lnazzal          ###   ########.fr       */
+/*   Updated: 2026/10/19 19:21:43 by lnazzal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
 
 void	sa(t_stack *stack_a)
 {
-	//check if stack is empty
-	//check if it has two or more elements
 	int	temp;
 
 	if (!stack_a || !stack_a->next)
-	return ;
+		return ;
 	temp = stack_a->value;
 	stack_a->value = stack_a->next->value;
 	stack_a->next->value = temp;
